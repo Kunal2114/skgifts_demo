@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Corporate Gifting | Premium Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navigation Menu -->
+    <nav class="sticky top-0 bg-white/90 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <img src="images/logo.png" alt="SK Corporate Gifting" style="max-width: 150px;">
+            
+            <!-- Links -->
+            <div class="space-x-8 font-medium text-gray-600">
+                <a href="#" class="hover:text-blue-600 transition">Home</a>
+                <a href="#about" class="hover:text-blue-600 transition">About</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 px-6 text-center bg-gray-50">
+        <h2 class="text-5xl font-extrabold mb-6 text-gray-900">Elevate Your Corporate Gifting</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">Premium, curated gift solutions designed to make an impact. Perfect for employee appreciation and client relations.</p>
+        <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition">Request a Quote</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h3 class="text-3xl font-bold mb-6">About Us</h3>
+        <p class="text-lg text-gray-600">At SK Corporate Gifting, we believe that gifts should be more than just objects—they should be experiences that strengthen professional relationships. We curate high-quality bags, suitcases, and premium drinkware to ensure your brand leaves a lasting impression.</p>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="py-16 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-3xl font-bold mb-12 text-center">Our Collection</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Product Card Template -->
+                <a href="files/catalog-bags.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
+                    <img src="images/bag.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
+                    <h4 class="text-xl font-semibold mb-2">Premium Bags</h4>
+                    <span class="text-blue-600 font-medium">View Catalog →</span>
+                </a>
+
+                <a href="files/catalog-suitcases.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
+                    <img src="images/suitcase.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
+                    <h4 class="text-xl font-semibold mb-2">Travel Suitcases</h4>
+                    <span class="text-blue-600 font-medium">View Catalog →</span>
+                </a>
+
+                <a href="files/catalog-bottles.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
+                    <img src="images/bottle.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
+                    <h4 class="text-xl font-semibold mb-2">Thermal Bottles</h4>
+                    <span class="text-blue-600 font-medium">View Catalog →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 px-6 max-w-xl mx-auto bg-gray-50 rounded-2xl mb-20">
+        <h3 class="text-3xl font-bold mb-8 text-center">Get in Touch</h3>
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="text" name="name" placeholder="Company Name" class="w-full p-4 border border-gray-200 rounded-lg">
+            <input type="email" name="email" placeholder="Work Email" class="w-full p-4 border border-gray-200 rounded-lg">
+            <textarea name="message" placeholder="Details (Qty, Date, etc.)" class="w-full p-4 border border-gray-200 rounded-lg" rows="4"></textarea>
+            <button type="submit" class="w-full bg-blue-600 text-white p-4 rounded-lg font-bold hover:bg-blue-700 transition">Submit Inquiry</button>
+        </form>
+    </section>
+
+</body>
+</html>
