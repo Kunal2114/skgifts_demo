@@ -82,6 +82,31 @@
             <button type="submit" class="w-full bg-blue-600 text-white p-4 rounded-lg font-bold hover:bg-blue-700 transition">Submit Inquiry</button>
         </form>
     </section>
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
 
+        // This submits the data without refreshing the page
+        await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: json
+        });
+
+        // Clear the form fields
+        form.reset();
+        
+        // Success alert or message
+        alert("Thank you! Your inquiry has been sent successfully.");
+        
+        // Smooth scroll back to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+    
 </body>
 </html>
