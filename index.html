@@ -110,21 +110,6 @@
    function hideForm() {
             contactSection.style.display = 'none';
         }
-        
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
-        <div class="max-w-6xl mx-auto text-center space-y-6">
-            <img src="images/logo.png" class="mx-auto" style="max-width: 100px;">
-            <div class="space-x-6 text-sm">
-                <a href="#home" class="hover:text-white">Home</a>
-                <a href="#about" class="hover:text-white">About Us</a>
-                <a href="#contact" class="hover:text-white">Contact Us</a>
-            </div>
-            <div class="border-t border-gray-800 pt-6">
-                <p>&copy; 2026 SK Corporate Gifting. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     // Handle Form Submission
         document.getElementById('inquiryForm').addEventListener('submit', async (e) => {
@@ -150,9 +135,9 @@
         });
 
         if (response.ok) {
+       alert("Thank you! We will be in touch shortly.");
             form.reset();
             hideForm(); 
-            alert("Thank you! We will be in touch shortly.");
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             alert("Something went wrong. Please try again.");
@@ -171,5 +156,19 @@
             section.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+     <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
+        <div class="max-w-6xl mx-auto text-center space-y-6">
+            <img src="images/logo.png" class="mx-auto" style="max-width: 100px;">
+            <div class="space-x-6 text-sm">
+                <a href="#home" class="hover:text-white">Home</a>
+                <a href="#about" class="hover:text-white">About Us</a>
+                <a href="#contact" class="hover:text-white">Contact Us</a>
+            </div>
+            <div class="border-t border-gray-800 pt-6">
+                <p>&copy; 2026 SK Corporate Gifting. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
