@@ -8,6 +8,14 @@
     <style>
         #contact-section { display: none; }
     </style>
+       <style>
+        /* This forces all internal links to respect the sticky header height */
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 120px; 
+        }
+        #contact-section { display: none; }
+    </style>
 </head>
 <body class="bg-white text-gray-800">
 
@@ -21,12 +29,13 @@
 
     <!-- Navigation Menu -->
        <!-- Navigation -->
-    <nav class="sticky top-[36px] bg-white/95 backdrop-blur-sm border-b border-gray-100 z-40">
+     <nav class="sticky top-[36px] bg-white/95 backdrop-blur-sm border-b border-gray-100 z-40">
         <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
             <a href="#"><img src="images/logo.png" alt="Logo" style="max-width: 120px;"></a>
             <div class="space-x-6 font-medium text-sm uppercase tracking-wider text-gray-600">
                 <a href="#" onclick="hideForm()">Home</a>
                 <a href="#about" onclick="hideForm()">About</a>
+                <!-- This triggers the form -->
                 <a href="javascript:void(0)" onclick="toggleContact()">Contact Us</a>
             </div>
         </div>
@@ -40,7 +49,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-6 max-w-4xl mx-auto text-center">
+   <section id="about" class="py-20 px-6 max-w-4xl mx-auto text-center">
         <h3 class="text-3xl font-bold mb-6">About Us</h3>
         <p class="text-lg text-gray-600">At SK Corporate Gifting, we believe that gifts should be more than just objects—they should be experiences that strengthen professional relationships. We curate high-quality bags, suitcases, and premium drinkware to ensure your brand leaves a lasting impression.</p>
     </section>
@@ -158,13 +167,14 @@
         }
     </script>
      <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
+     <footer class="bg-gray-900 text-gray-400 py-12 px-6">
         <div class="max-w-6xl mx-auto text-center space-y-6">
             <img src="images/logo.png" class="mx-auto" style="max-width: 100px;">
             <div class="space-x-6 text-sm">
-                <a href="#home" class="hover:text-white">Home</a>
-                <a href="#about" class="hover:text-white">About Us</a>
-                <a href="#contact" class="hover:text-white">Contact Us</a>
+                <a href="#">Home</a>
+                <a href="#about">About Us</a>
+                <!-- REMOVED the onclick="toggleContact()" here -->
+                <a href="#contact-section">Contact Us</a> 
             </div>
             <div class="border-t border-gray-800 pt-6">
                 <p>&copy; 2026 SK Corporate Gifting. All Rights Reserved.</p>
