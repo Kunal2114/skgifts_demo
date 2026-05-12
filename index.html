@@ -6,26 +6,26 @@
     <title>SK Corporate Gifting | Premium Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Hidden by default */
         #contact-section { display: none; }
     </style>
 </head>
 <body class="bg-white text-gray-800">
-<div class="bg-gray-100 py-2 text-sm text-gray-600">
+
+    <!-- Sticky Top Info Bar -->
+    <div class="sticky top-0 bg-gray-100 py-2 text-sm text-gray-600 z-50">
         <div class="max-w-6xl mx-auto px-6 flex justify-end items-center gap-2">
-            <!-- Email Icon -->
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
             <a href="mailto:info@skgiftsco.in" class="hover:text-blue-600">info@skgiftsco.in</a>
         </div>
     </div>
-    
-     <!-- Navigation -->
-    <nav class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
+
+    <!-- Navigation -->
+    <nav class="sticky top-[36px] bg-white/95 backdrop-blur-sm border-b border-gray-100 z-40">
         <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
             <a href="#"><img src="images/logo.png" alt="Logo" style="max-width: 120px;"></a>
             <div class="space-x-6 font-medium text-sm uppercase tracking-wider text-gray-600">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
+                <a href="#" onclick="hideForm()">Home</a>
+                <a href="#about" onclick="hideForm()">About</a>
                 <a href="javascript:void(0)" onclick="toggleContact()">Contact Us</a>
             </div>
         </div>
@@ -75,21 +75,42 @@
    <!-- Contact Form (Hidden by default) -->
     <section id="contact-section" class="py-20 px-6 max-w-xl mx-auto bg-gray-50 rounded-2xl my-10 border border-gray-200">
         <h3 class="text-3xl font-bold mb-8 text-center">Get in Touch</h3>
-        <form class="space-y-4">
-            <input type="hidden" name="access_key" value="ce5ceb0b-2b90-4e7a-b0b2-c801c2856ce6">
-            <input type="text" name="name" placeholder="Company Name" class="w-full p-4 border border-gray-200 rounded-lg" required>
-            <input type="email" name="email" placeholder="Work Email" class="w-full p-4 border border-gray-200 rounded-lg" required>
-            <input type="tel" name="phone" placeholder="Phone Number" class="w-full p-4 border border-gray-200 rounded-lg" required>
-            <textarea name="message" placeholder="Details" class="w-full p-4 border border-gray-200 rounded-lg" rows="4"></textarea>
-            <button type="submit" class="w-full bg-blue-600 text-white p-4 rounded-lg font-bold hover:bg-blue-700 transition">Submit Inquiry</button>
-        </form>
+       <form id="inquiryForm" class="space-y-4">
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    
+    <input type="text" name="name" placeholder="Company Name" class="w-full p-4 border border-gray-200 rounded-lg" required>
+    
+    <!-- HTML5 automatically validates email format -->
+    <input type="email" name="email" placeholder="Work Email (e.g., name@company.com)" class="w-full p-4 border border-gray-200 rounded-lg" required>
+    
+    <!-- Phone validation: Allows 10-15 digits, optional + at start -->
+    <input type="tel" name="phone" placeholder="Phone Number (e.g., +919876543210)" 
+           pattern="^\+?[0-9]{10,15}$" 
+           title="Please enter a valid phone number (10-15 digits)" 
+           class="w-full p-4 border border-gray-200 rounded-lg" required>
+           
+    <textarea name="message" placeholder="Details" class="w-full p-4 border border-gray-200 rounded-lg" rows="4" required></textarea>
+    
+    <button type="submit" class="w-full bg-blue-600 text-white p-4 rounded-lg font-bold hover:bg-blue-700 transition">Submit Inquiry</button>
+</form>
     </section>
 
     <!-- Floating Help Button -->
     <button onclick="toggleContact()" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition z-50">
         How may I help you?
     </button>
+     <!-- JavaScript -->
+    <script>
+        const contactSection = document.getElementById('contact-section');
 
+        function toggleContact() {
+            contactSection.style.display = (contactSection.style.display === 'block') ? 'none' : 'block';
+            if(contactSection.style.display === 'block') contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+   function hideForm() {
+            contactSection.style.display = 'none';
+        }
+        
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12 px-6">
         <div class="max-w-6xl mx-auto text-center space-y-6">
@@ -105,21 +126,43 @@
         </div>
     </footer>
 
-    <!-- Form Submission Script -->
-    <script>
-        const form = document.querySelector('form');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            });
+    // Handle Form Submission
+        document.getElementById('inquiryForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const form = e.target;
+    const email = form.querySelector('input[type="email"]').value;
+    const phone = form.querySelector('input[type="tel"]').value;
+
+    // Simple extra check
+    if (!email.includes('@') || !email.includes('.')) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    // Submit logic
+    const formData = new FormData(form);
+    
+    try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
             form.reset();
+            hideForm(); 
             alert("Thank you! We will be in touch shortly.");
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        } else {
+            alert("Something went wrong. Please try again.");
+        }
+    } catch (error) {
+        alert("Submission failed. Please check your internet connection.");
+    }
+});
     </script>
+    
  <!-- Script to Toggle Visibility -->
     <script>
         function toggleContact() {
