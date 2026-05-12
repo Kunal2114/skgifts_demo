@@ -114,11 +114,21 @@
      <!-- JavaScript -->
     <script>
         const contactSection = document.getElementById('contact-section');
-
-        function toggleContact() {
-            contactSection.style.display = (contactSection.style.display === 'block') ? 'none' : 'block';
-            if(contactSection.style.display === 'block') contactSection.scrollIntoView({ behavior: 'smooth' });
+    
+        // Function to show and scroll
+    function openContactForm() {
+        contactSection.style.display = 'block';
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+        
+      function toggleContact() {
+        if (contactSection.style.display === 'block') {
+            contactSection.style.display = 'none';
+        } else {
+            openContactForm();
         }
+    }
+        
    function hideForm() {
             contactSection.style.display = 'none';
         }
@@ -168,40 +178,6 @@
             section.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-    <script>
-    const contactSection = document.getElementById('contact-section');
-
-    // Function to show and scroll
-    function openContactForm() {
-        contactSection.style.display = 'block';
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Function to toggle (used by floating button)
-    function toggleContact() {
-        if (contactSection.style.display === 'block') {
-            contactSection.style.display = 'none';
-        } else {
-            openContactForm();
-        }
-    }
-
-    // Function to hide
-    function hideForm() {
-        contactSection.style.display = 'none';
-    }
-
-    // Form submission logic
-    document.getElementById('inquiryForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
-        e.target.reset();
-        hideForm();
-        alert("Thank you! We will be in touch shortly.");
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
      <!-- Footer -->
      <footer class="bg-gray-900 text-gray-400 py-12 px-6">
         <div class="max-w-6xl mx-auto text-center space-y-6">
