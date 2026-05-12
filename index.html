@@ -1,112 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <style>
-    html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px; /* Adjust this if the overlap persists */
-    }
-</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SK Corporate Gifting | Premium Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-padding-top: 80px; }
+    </style>
 </head>
 <body class="bg-white text-gray-800">
 
-    <!-- Navigation Menu -->
+    <!-- Navigation -->
     <nav class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
-    <!-- max-w-6xl keeps it from stretching to the full edges of the screen -->
-    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-        <!-- Logo -->
-        <a href="#"><img src="images/logo.png" alt="SK Corporate Gifting" style="max-width: 120px;"></a>
-        
-        <!-- Links -->
-        <div class="space-x-6 font-medium text-sm uppercase tracking-wider text-gray-600">
-            <a href="#" class="hover:text-blue-600 transition">Home</a>
-            <a href="#about" class="hover:text-blue-600 transition">About</a>
-            <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-        </div>
-    </div>
-  </nav>
-
-    <!-- Hero Section -->
-<section id="home" class="py-20 px-6 text-center bg-gray-50 pt-32">
-    <h2 class="text-5xl font-extrabold mb-6 text-gray-900">Elevate Your Corporate Gifting</h2>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">Premium, curated gift solutions designed to make an impact. Perfect for employee appreciation and client relations.</p>
-        <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition">Request a Quote</a>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <h3 class="text-3xl font-bold mb-6">About Us</h3>
-        <p class="text-lg text-gray-600">At SK Corporate Gifting, we believe that gifts should be more than just objects—they should be experiences that strengthen professional relationships. We curate high-quality bags, suitcases, and premium drinkware to ensure your brand leaves a lasting impression.</p>
-    </section>
-
-    <!-- Catalog Section -->
-    <section class="py-16 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-12 text-center">Our Collection</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <!-- Product Card Template -->
-                <a href="files/catalog-bags.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
-                    <img src="images/bag.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
-                    <h4 class="text-xl font-semibold mb-2">Premium Bags</h4>
-                    <span class="text-blue-600 font-medium">View Catalog →</span>
-                </a>
-
-                <a href="files/catalog-suitcases.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
-                    <img src="images/suitcase.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
-                    <h4 class="text-xl font-semibold mb-2">Travel Suitcases</h4>
-                    <span class="text-blue-600 font-medium">View Catalog →</span>
-                </a>
-
-                <a href="files/catalog-bottles.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
-                    <img src="images/bottle.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
-                    <h4 class="text-xl font-semibold mb-2">Thermal Bottles</h4>
-                    <span class="text-blue-600 font-medium">View Catalog →</span>
-                </a>
+        <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+            <a href="#"><img src="images/logo.png" alt="Logo" style="max-width: 120px;"></a>
+            <div class="space-x-6 font-medium text-sm uppercase tracking-wider text-gray-600">
+                <a href="#home" class="hover:text-blue-600">Home</a>
+                <a href="#about" class="hover:text-blue-600">About</a>
+                <a href="#contact" class="hover:text-blue-600">Contact Us</a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Contact Form -->
+    <!-- Hero, About, Catalog (Keep these from previous versions) -->
+
+    <!-- Contact Form (Ensure ID is 'contact') -->
     <section id="contact" class="py-20 px-6 max-w-xl mx-auto bg-gray-50 rounded-2xl mb-20">
         <h3 class="text-3xl font-bold mb-8 text-center">Get in Touch</h3>
-        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-            <input type="hidden" name="access_key" value="ce5ceb0b-2b90-4e7a-b0b2-c801c2856ce6">
-            <input type="text" name="name" placeholder="Company Name" class="w-full p-4 border border-gray-200 rounded-lg">
-            <input type="email" name="email" placeholder="Work Email" class="w-full p-4 border border-gray-200 rounded-lg">
-            <textarea name="message" placeholder="Details (Qty, Date, etc.)" class="w-full p-4 border border-gray-200 rounded-lg" rows="4"></textarea>
+        <form class="space-y-4">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="text" name="name" placeholder="Company Name" class="w-full p-4 border border-gray-200 rounded-lg" required>
+            <input type="email" name="email" placeholder="Work Email" class="w-full p-4 border border-gray-200 rounded-lg" required>
+            <input type="tel" name="phone" placeholder="Phone Number" class="w-full p-4 border border-gray-200 rounded-lg" required>
+            <textarea name="message" placeholder="Details" class="w-full p-4 border border-gray-200 rounded-lg" rows="4"></textarea>
             <button type="submit" class="w-full bg-blue-600 text-white p-4 rounded-lg font-bold hover:bg-blue-700 transition">Submit Inquiry</button>
         </form>
     </section>
-<script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
 
-        // This submits the data without refreshing the page
-        await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: json
+    <!-- Floating Help Button -->
+    <a href="#contact" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition flex items-center gap-2 z-50">
+        <span>How may I help you?</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
+        <div class="max-w-6xl mx-auto text-center space-y-6">
+            <img src="images/logo.png" class="mx-auto" style="max-width: 100px;">
+            <div class="space-x-6 text-sm">
+                <a href="#home" class="hover:text-white">Home</a>
+                <a href="#about" class="hover:text-white">About Us</a>
+                <a href="#contact" class="hover:text-white">Contact Us</a>
+            </div>
+            <div class="border-t border-gray-800 pt-6">
+                <p>&copy; 2026 SK Corporate Gifting. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Form Submission Script -->
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            form.reset();
+            alert("Thank you! We will be in touch shortly.");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    </script>
 
-        // Clear the form fields
-        form.reset();
-        
-        // Success alert or message
-        alert("Thank you! Your inquiry has been sent successfully.");
-        
-        // Smooth scroll back to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-</script>
-    
 </body>
 </html>
