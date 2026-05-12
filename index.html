@@ -32,12 +32,11 @@
      <nav class="sticky top-[36px] bg-white/95 backdrop-blur-sm border-b border-gray-100 z-40">
         <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
             <a href="#"><img src="images/logo.png" alt="Logo" style="max-width: 120px;"></a>
-            <div class="space-x-6 font-medium text-sm uppercase tracking-wider text-gray-600">
-                <a href="#" onclick="hideForm()">Home</a>
-                <a href="#about" onclick="hideForm()">About</a>
-                <!-- This triggers the form -->
-                <a href="javascript:void(0)" onclick="toggleContact()">Contact Us</a>
-            </div>
+           <div class="space-x-4 md:space-x-8 font-medium text-xs md:text-sm uppercase tracking-wider text-gray-600 flex items-center">
+    <a href="#" onclick="hideForm()" class="whitespace-nowrap">Home</a>
+    <a href="#about" onclick="hideForm()" class="whitespace-nowrap">About</a>
+    <a href="javascript:void(0)" onclick="toggleContact()" class="whitespace-nowrap">Contact Us</a>
+     </div>
         </div>
     </nav>
 
@@ -113,25 +112,27 @@
     </button>
      <!-- JavaScript -->
     <script>
-        const contactSection = document.getElementById('contact-section');
-    
-        // Function to show and scroll
+          const contactSection = document.getElementById('contact-section');
+
     function openContactForm() {
         contactSection.style.display = 'block';
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        // Small delay to ensure display is block before scrolling
+        setTimeout(() => {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
     }
-        
-      function toggleContact() {
+
+    function toggleContact() {
         if (contactSection.style.display === 'block') {
             contactSection.style.display = 'none';
         } else {
             openContactForm();
         }
     }
-        
-   function hideForm() {
-            contactSection.style.display = 'none';
-        }
+
+    function hideForm() {
+        contactSection.style.display = 'none';
+    }
 
     // Handle Form Submission
         document.getElementById('inquiryForm').addEventListener('submit', async (e) => {
