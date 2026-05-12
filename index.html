@@ -6,19 +6,27 @@
     <title>SK Corporate Gifting | Premium Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html { scroll-padding-top: 80px; }
+        /* Hidden by default */
+        #contact-section { display: none; }
     </style>
 </head>
 <body class="bg-white text-gray-800">
-
-    <!-- Navigation -->
+<div class="bg-gray-100 py-2 text-sm text-gray-600">
+        <div class="max-w-6xl mx-auto px-6 flex justify-end items-center gap-2">
+            <!-- Email Icon -->
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:info@skgiftsco.in" class="hover:text-blue-600">info@skgiftsco.in</a>
+        </div>
+    </div>
+    
+     <!-- Navigation -->
     <nav class="sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
         <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
             <a href="#"><img src="images/logo.png" alt="Logo" style="max-width: 120px;"></a>
             <div class="space-x-6 font-medium text-sm uppercase tracking-wider text-gray-600">
-                <a href="#home" class="hover:text-blue-600">Home</a>
-                <a href="#about" class="hover:text-blue-600">About</a>
-                <a href="#contact" class="hover:text-blue-600">Contact Us</a>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="javascript:void(0)" onclick="toggleContact()">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -64,8 +72,8 @@
         </div>
     </section>
     
-    <!-- Contact Form (Ensure ID is 'contact') -->
-    <section id="contact" class="py-20 px-6 max-w-xl mx-auto bg-gray-50 rounded-2xl mb-20">
+   <!-- Contact Form (Hidden by default) -->
+    <section id="contact-section" class="py-20 px-6 max-w-xl mx-auto bg-gray-50 rounded-2xl my-10 border border-gray-200">
         <h3 class="text-3xl font-bold mb-8 text-center">Get in Touch</h3>
         <form class="space-y-4">
             <input type="hidden" name="access_key" value="ce5ceb0b-2b90-4e7a-b0b2-c801c2856ce6">
@@ -78,9 +86,9 @@
     </section>
 
     <!-- Floating Help Button -->
-    <a href="#contact" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition flex items-center gap-2 z-50">
-        <span>How may I help you?</span>
-    </a>
+    <button onclick="toggleContact()" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition z-50">
+        How may I help you?
+    </button>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12 px-6">
@@ -112,6 +120,13 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
-
+ <!-- Script to Toggle Visibility -->
+    <script>
+        function toggleContact() {
+            const section = document.getElementById('contact-section');
+            section.style.display = (section.style.display === 'block') ? 'none' : 'block';
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
