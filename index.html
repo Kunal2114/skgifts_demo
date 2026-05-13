@@ -16,6 +16,17 @@
         }
         #contact-section { display: none; }
     </style>
+    <style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
 </head>
 <body class="bg-white text-gray-800">
 
@@ -57,37 +68,43 @@
     </section>
 
     <!-- Catalog Section -->
-    <section class="py-16 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-12 text-center">Our Collection</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <!-- Product Card Template -->
-                <a href="files/catalog-bags.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
-                    <img src="images/bag.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
-                    <h4 class="text-xl font-semibold mb-2">Premium Bags</h4>
-                    <span class="text-blue-600 font-medium">View Catalog →</span>
-                </a>
+   <section class="py-16 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <h3 class="text-3xl font-bold mb-10 text-center">Our Collection</h3>
+        
+        <!-- Horizontal Scroll Container -->
+        <div class="flex space-x-6 overflow-x-auto pb-6 scrollbar-hide snap-x">
+            
+            <!-- Cards (Added min-w-[280px] to ensure they don't shrink too small) -->
+            <a href="files/catalog-bags.pdf" target="_blank" class="min-w-[280px] md:min-w-[320px] block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50 snap-center">
+                <img src="images/bag.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
+                <h4 class="text-xl font-semibold mb-2">Premium Bags</h4>
+                <span class="text-blue-600 font-medium">View Catalog →</span>
+            </a>
 
-                <a href="files/catalog-suitcases.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
-                    <img src="images/suitcase.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
-                    <h4 class="text-xl font-semibold mb-2">Travel Suitcases</h4>
-                    <span class="text-blue-600 font-medium">View Catalog →</span>
-                </a>
+            <a href="files/catalog-suitcases.pdf" target="_blank" class="min-w-[280px] md:min-w-[320px] block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50 snap-center">
+                <img src="images/suitcase.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
+                <h4 class="text-xl font-semibold mb-2">Travel Suitcases</h4>
+                <span class="text-blue-600 font-medium">View Catalog →</span>
+            </a>
 
-                <a href="files/catalog-bottles.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
-                    <img src="images/bottle.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
-                    <h4 class="text-xl font-semibold mb-2">Thermal Bottles</h4>
-                    <span class="text-blue-600 font-medium">View Catalog →</span>
-                </a>
-                <a href="files/catalog-T-Shirts.pdf" target="_blank" class="block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50">
-                    <img src="images/t-shirts.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
-                    <h4 class="text-xl font-semibold mb-2">Printed T-Shirts</h4>
-                    <span class="text-blue-600 font-medium">View Catalog →</span>
-                </a>
-            </div>
+            <a href="files/catalog-bottles.pdf" target="_blank" class="min-w-[280px] md:min-w-[320px] block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50 snap-center">
+                <img src="images/bottle.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
+                <h4 class="text-xl font-semibold mb-2">Thermal Bottles</h4>
+                <span class="text-blue-600 font-medium">View Catalog →</span>
+            </a>
+
+            <!-- New T-Shirt Collection -->
+            <a href="files/catalog-tshirts.pdf" target="_blank" class="min-w-[280px] md:min-w-[320px] block p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition bg-gray-50 snap-center">
+                <img src="images/t-shirts.jpg" class="w-full h-48 object-cover rounded-lg mb-4 bg-gray-200">
+                <h4 class="text-xl font-semibold mb-2">Corporate T-Shirts</h4>
+                <span class="text-blue-600 font-medium">View Catalog →</span>
+            </a>
+            
         </div>
-    </section>
+        <p class="text-center text-gray-400 text-sm mt-4 italic">Swipe sideways to view more</p>
+    </div>
+</section>
     
    <!-- Contact Form (Hidden by default) -->
     <section id="contact-section" class="py-20 px-6 max-w-xl mx-auto bg-gray-50 rounded-2xl my-10 border border-gray-200">
